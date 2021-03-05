@@ -19,46 +19,43 @@ runtime! debian.vim
 " Uncomment the next line to make Vim more Vi-compatible
 " NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
 " options, so any other options should be set AFTER setting 'compatible'.
-syntax on
-syntax enable
-filetype plugin indent on
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Custom key maps
 
-
-
-set mouse=a
-set hlsearch
-set compatible
-set autoindent
-set ignorecase
-set incsearch
-set smartcase
-set linebreak
-set wrap
-set laststatus=2
-set scrolloff=1
-set sidescrolloff=5
-set ruler
-set wildmenu
-set number
-set title
-set background=dark
-set history=1000
-set nomodeline
-set noerrorbells
-set encoding=utf-8
-set guifont=MesloLGSDZ\ Nerd\ Font\ 10
-" set shell
-" set expandtab
-" set visualbell
-" set formatoptions+=j
-" set tabpagemax=50
-" set shiftround
-" set shiftwidth=4
-" set smarttab
-" set tabstop=4
+:set mouse=a
+:set hlsearch
+:set autoindent
+:set ignorecase
+:set incsearch
+:set smartcase
+:set linebreak
+:set wrap
+" :set laststatus=2
+:set scrolloff=1
+:set sidescrolloff=5
+" :set ruler
+:set wildmenu
+:set number
+" :set title
+:set background=dark
+:set history=1000
+:set nomodeline
+:set noerrorbells
+:set encoding=UTF-8
+:set guifont=MesloLGSDZ\ Nerd\ Font\ 11
+" :set shell
+:set expandtab
+:set visualbell
+:set formatoptions+=j
+:set tabpagemax=50
+:set shiftround
+:set shiftwidth=4
+:set smarttab
+:set tabstop=4
+syntax on
+syntax enable
+filetype plugin indent on
 
 	" Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -78,5 +75,26 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) | 
 " Plugin collection
 
 call plug#begin('~/.vim/plugged')
-
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'preservim/tagbar'
 call plug#end()
+
+" Additional setup for installed Plugins
+"
+" vim-airline
+let g:gruvbox_italic=1
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline_statusline_ontop=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
