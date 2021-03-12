@@ -1,0 +1,10 @@
+Here follows some considerations for next customizations over vimrc as global file:
+
+Try debug any mismatching config over used plugins
+Try make it universal as much for any distro you run
+
+Install or find out a good folder explorer (like netrw, vinegar,nerdtree, etc)
+Install useful git plugins
+Install useful syntax plugins
+Install usefull autocomplete plugins
+Intall shell integration with vim
